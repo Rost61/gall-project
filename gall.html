@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  
+  <!-- Embedded CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .gallery-item {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 4px solid #ddd;
+      transition: transform 0.2s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Gallery</h1>
+  <div class="gallery" id="gallery"></div>
+
+  <!-- Embedded JavaScript -->
+  <script>
+    const images = [
+      { src: "images/image1.jpg", alt: "Image 1" },
+      { src: "images/image2.jpg", alt: "Image 2" },
+      { src: "images/image3.jpg", alt: "Image 3" },
+      { src: "images/photo_2023-04-22_03-09-12.jpg", alt: "Image 4" }
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    images.forEach((image) => {
+      const div = document.createElement("div");
+      div.className = "gallery-item";
+      
+      const img = document.createElement("img");
+      img.src = image.src;  // Image path relative to the project directory
+      img.alt = image.alt;
+      
+      div.appendChild(img);
+      gallery.appendChild(div);
+    });
+  </script>
+</body>
+</html>
